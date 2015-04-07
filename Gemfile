@@ -80,3 +80,7 @@ gem 'httparty'
 
 #code quality
 gem 'rubocop', require: false
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end

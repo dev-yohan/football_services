@@ -1,0 +1,7 @@
+en:
+  players:
+    api:
+      error:
+        code_101:
+          dev_message: "Player can't be created"
+          friendly_message:  "Player can't be created"

@@ -1,0 +1,7 @@
+en:
+  apps:
+    api:
+      error:
+        code_200:
+          dev_message: "App does not exist"
+          friendly_message:  "App does not exist"

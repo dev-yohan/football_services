@@ -2,14 +2,16 @@ class Soccer::PlayerManager
 
   def create (player_info = {})
 
-    app = Business::App.find(player_info[:app_id])
+    puts "PLAYER INFO #{player_info.inspect}"
+      app = Business::App.find(player_info[:app_id])
 
-    player = Soccer::Player.new(unique_id: player_info[:unique_id],
-                                first_name: player_info[:first_name],
-                                last_name: player_info[:last_name],
-                                app: app)
+      player = Soccer::Player.new(unique_id: player_info[:unique_id],
+                                  first_name: player_info[:first_name],
+                                  last_name: player_info[:last_name],
+                                  app: app)
 
-    player.save
+      player.save
+
 
   end
 

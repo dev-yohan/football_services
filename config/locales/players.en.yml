@@ -5,3 +5,13 @@ en:
         code_101:
           dev_message: "Player can't be created"
           friendly_message:  "Player can't be created"
+        code_102:
+          dev_message: "Player information is incomplete"
+          friendly_message:  "Player information is incomplete"
+        code_103:
+          dev_message: "Player already exists"
+          friendly_message:  "Player already exists"
+      success:
+        code_100:
+          dev_message: "Player successfully created"
+          friendly_message:  "Player successfully created"

@@ -6,26 +6,37 @@ class Api::V1::Players::PlayerManager
 
     begin
       player_manager = Soccer::PlayerManager.new
+      puts "PLAYER INFO #{player_info.inspect}"
       app = Business::App.find(player_info[:app_id])
 
-        if !player_manager.check_if_exists(player_info)
-          if player_manager.create(player_info)
-            json_data = {}
-            status = 200
-          else
-            json_data = {error_code: 101,
-            dev_message: I18n.t("players.api.error.code_101.dev_message", id: activity_id),
-            friendly_message: I18n.t("players.api.error.code_101.friendly_message", id: activity_id)}
-            status = 500
-          end
+        if(!player_info[:unique_id].nil? && !player_info[:first_name].nil? && !player_info[:last_name].nil?)
+
+            if !player_manager.check_if_exists(player_info)
+                if player_manager.create(player_info)
+                  json_data = {}
+                  status = 200
+                else
+                  json_data = {error_code: 101,
+                  dev_message: I18n.t("players.api.error.code_101.dev_message"),
+                  friendly_message: I18n.t("players.api.error.code_101.friendly_message")}
+                  status = 500
+                end
+            else
+                json_data = {error_code: 103,
+                dev_message: I18n.t("players.api.error.code_103.dev_message"),
+                friendly_message: I18n.t("players.api.error.code_103.friendly_message")}
+                status = 403
+            end
         else
-          json_data = {success: true}
-          status = 204
+            json_data = {error_code: 102,
+            dev_message: I18n.t("players.api.error.code_102.dev_message"),
+            friendly_message: I18n.t("players.api.error.code_102.friendly_message")}
+            status = 403
         end
     rescue Mongoid::Errors::DocumentNotFound
          json_data = {error_code: 201,
           dev_message: I18n.t("apps.api.error.code_200.dev_message"),
-          friendly_message: I18n.t("apps.api.error.code_200.friendly_message",)}
+          friendly_message: I18n.t("apps.api.error.code_200.friendly_message")}
          status = 404
     end
 

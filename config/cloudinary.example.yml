@@ -1,0 +1,18 @@
+development:
+  cloud_name: hrsvec121
+  api_key: '451234347744486'
+  api_secret: tg-PBYsm3dgnKSAhcPLNnF6hE1I
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hrsvec121
+  api_key: '451234347744486'
+  api_secret: tg-PBYsm3dgnKSAhcPLNnF6hE1I
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hrsvec121
+  api_key: '451234347744486'
+  api_secret: tg-PBYsm3dgnKSAhcPLNnF6hE1I
+  enhance_image_tag: true
+  static_image_support: false

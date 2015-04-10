@@ -17,3 +17,6 @@
 
 # Ignore mongoid configuration
 /config/mongoid.yml
+
+# Ignore cloudinary configuration
+/config/cloudinary.yml

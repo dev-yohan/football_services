@@ -13,7 +13,12 @@ class Api::V1::Players::PlayerManager
 
             if !player_manager.check_if_exists(player_info)
                 if player_manager.create(player_info)
-                  json_data = {}
+                  new_player = player_manager.retrieve_basic_player(player_info)
+                  json_data = {  id: new_player.id.to_s,
+                                 unique_id: new_player.unique_id,
+                                              first_name: new_player.first_name,
+                                              last_name: new_player.last_name,
+                                              app_id: new_player.app.id.to_s}
                   status = 200
                 else
                   json_data = {error_code: 101,

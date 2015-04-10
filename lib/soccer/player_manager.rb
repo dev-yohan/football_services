@@ -1,7 +1,6 @@
 class Soccer::PlayerManager
 
   def create (player_info = {})
-
     puts "PLAYER INFO #{player_info.inspect}"
       app = Business::App.find(player_info[:app_id])
 
@@ -11,10 +10,13 @@ class Soccer::PlayerManager
                                   app: app)
 
       player.save
-
-
   end
 
+
+  def retrieve_basic_player(player_info = {})
+    app = Business::App.find(player_info[:app_id])
+    player = Soccer::Player.where(unique_id: player_info[:unique_id], app: app).first
+  end
 
   def check_if_exists (player_info)
     player = Soccer::Player.where(unique_id: player_info[:unique_id], app_id: player_info[:app_id]).first
